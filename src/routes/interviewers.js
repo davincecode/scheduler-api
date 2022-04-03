@@ -1,6 +1,6 @@
-const router = require("express").Router();
+const router = require("express").Router()
 
-module.exports = db => {
+module.exports = (db) => {
   router.get("/interviewers", (request, response) => {
     db.query(`SELECT * FROM interviewers`).then(({ rows: interviewers }) => {
       response.json(
@@ -8,9 +8,9 @@ module.exports = db => {
           (previous, current) => ({ ...previous, [current.id]: current }),
           {}
         )
-      );
-    });
-  });
+      )
+    })
+  })
 
-  return router;
-};
+  return router
+}

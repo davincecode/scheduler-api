@@ -1,6 +1,6 @@
-const router = require("express").Router();
+const router = require("express").Router()
 
-module.exports = db => {
+module.exports = (db) => {
   router.get("/days", (request, response) => {
     db.query(
       `
@@ -17,9 +17,9 @@ module.exports = db => {
       ORDER BY days.id
     `
     ).then(({ rows: days }) => {
-      response.json(days);
-    });
-  });
+      response.json(days)
+    })
+  })
 
-  return router;
-};
+  return router
+}
